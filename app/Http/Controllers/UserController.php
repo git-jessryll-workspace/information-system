@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\User\CreateUserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
 use Illuminate\Support\Str;
 
@@ -59,12 +60,14 @@ class UserController extends Controller
      */
     public function store(CreateUserRequest $request)
     {
-        
-        $user = User::create([
-            'email' => $request->validated('email'),
-            'password' => Str::random(10),
-            'name' => $request->getName(),
-        ]);
+        DB::transaction(function () use ($request) {
+            $user = User::create([
+                'email' => $request->validated('email'),
+                'password' => Str::random(10),
+                'name' => $request->getName(),
+            ]);
+            
+        });
 
         
     }

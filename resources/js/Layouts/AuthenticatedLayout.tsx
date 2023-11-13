@@ -180,7 +180,7 @@ export default function Authenticated({ user, header, children }: PropsWithChild
                 {/* Sidebar component, swap this element with another sidebar if you like */}
                 <div className="flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-white px-6 pb-4">
                     <div className="flex h-16 shrink-0 items-center">
-                        <ApplicationLogo className="block h-9 w-auto fill-current text-gray-800"/>
+                        <ApplicationLogo className="block h-9 w-auto fill-current text-gray-800" />
                     </div>
                     <nav className="flex flex-1 flex-col">
                         <ul role="list" className="flex flex-1 flex-col gap-y-7">
@@ -348,9 +348,7 @@ export default function Authenticated({ user, header, children }: PropsWithChild
                 </div>
 
                 <main className="py-6">
-                    <div className='mx-8 border border-gray-100 rounded-md shadow-md p-4'>
                     {children}
-                    </div>
                 </main>
             </div>
         </div>
